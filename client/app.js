@@ -22,14 +22,14 @@ if (
 
 const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-if(currentUser){
+if (currentUser) {
 
-    if(currentUser.role === "Employee"){
+    if (currentUser.role === "Employee") {
 
-        const empNav=document.getElementById("employeesNav");
+        const empNav = document.getElementById("employeesNav");
 
-        if(empNav){
-            empNav.style.display="none";
+        if (empNav) {
+            empNav.style.display = "none";
         }
 
     }
@@ -233,11 +233,11 @@ if (logoutBtn) {
 
 // ================= EMPLOYEE MANAGEMENT =================
 
-if(
+if (
     currentUser &&
     currentUser.role === "Employee"
-){
-    window.location.href="dashboard.html";
+) {
+    window.location.href = "dashboard.html";
 }
 
 const employeeForm = document.getElementById("employeeForm");
@@ -486,19 +486,69 @@ if (leaveForm) {
         const leaves =
             JSON.parse(localStorage.getItem("leaveRequests")) || [];
 
-        leaves.forEach(leave => {
+        leaves.forEach((leave, index) => {
+
+            let actionButtons = "-";
+
+            if (currentUser && currentUser.role === "HR") {
+
+                actionButtons = `
+                <button onclick="approveLeave(${index})">
+                    ✅ Approve
+                </button>
+
+                <button onclick="rejectLeave(${index})">
+                    ❌ Reject
+                </button>
+            `;
+            }
 
             tableBody.innerHTML += `
-                <tr>
-                    <td>${leave.name}</td>
-                    <td>${leave.reason}</td>
-                    <td>${leave.start}</td>
-                    <td>${leave.end}</td>
-                    <td>${leave.status}</td>
-                </tr>
-            `;
+        <tr>
+
+            <td>${leave.name}</td>
+            <td>${leave.reason}</td>
+            <td>${leave.start}</td>
+            <td>${leave.end}</td>
+            <td>${leave.status}</td>
+            <td>${actionButtons}</td>
+
+        </tr>
+        `;
 
         });
+
+    }
+
+    window.approveLeave = function (index) {
+
+        let leaves =
+            JSON.parse(localStorage.getItem("leaveRequests")) || [];
+
+        leaves[index].status = "Approved";
+
+        localStorage.setItem(
+            "leaveRequests",
+            JSON.stringify(leaves)
+        );
+
+        loadLeaves();
+
+    }
+
+    window.rejectLeave = function (index) {
+
+        let leaves =
+            JSON.parse(localStorage.getItem("leaveRequests")) || [];
+
+        leaves[index].status = "Rejected";
+
+        localStorage.setItem(
+            "leaveRequests",
+            JSON.stringify(leaves)
+        );
+
+        loadLeaves();
 
     }
 
