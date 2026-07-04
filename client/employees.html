@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees | HRMS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>HRMS</h2>
+
+        <ul>
+            <li><a href="dashboard.html">🏠 Dashboard</a></li>
+            <li><a href="employees.html">👥 Employees</a></li>
+            <li><a href="attendance.html">🕒 Attendance</a></li>
+            <li><a href="leave.html">📅 Leave</a></li>
+            <li><a href="payroll.html">💰 Payroll</a></li>
+            <li><a href="profile.html">👤 Profile</a></li>
+            <li><a href="#" id="logoutBtn">🚪 Logout</a></li>
+        </ul>
+
+    </aside>
+
+    <main class="content">
+
+        <h1>Employee Management</h1>
+
+        <form id="employeeForm">
+
+            <input type="text" id="empName" placeholder="Employee Name" required>
+
+            <input type="text" id="empId" placeholder="Employee ID" required>
+
+            <input type="email" id="empEmail" placeholder="Email" required>
+
+            <select id="empRole" required>
+                <option value="">Select Role</option>
+                <option>Employee</option>
+                <option>HR</option>
+            </select>
+
+            <button type="submit">Add Employee</button>
+
+        </form>
+
+        <table id="employeeTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+
+
+</body>
+</html>
