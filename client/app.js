@@ -216,32 +216,52 @@ if (logoutBtn) {
 // ================= EMPLOYEE MANAGEMENT =================
 
 const employeeForm = document.getElementById("employeeForm");
-
+let editingIndex = -1;
 if (employeeForm) {
 
     const tableBody = document.querySelector("#employeeTable tbody");
 
-    function loadEmployees() {
+    function loadEmployees(search = "") {
 
         tableBody.innerHTML = "";
 
-        const employees = JSON.parse(localStorage.getItem("employees")) || [];
+        const employees =
+            JSON.parse(localStorage.getItem("employees")) || [];
 
-        employees.forEach((employee, index) => {
+        const filtered = employees.filter(emp =>
+
+            emp.name.toLowerCase().includes(search.toLowerCase()) ||
+
+            emp.id.toLowerCase().includes(search.toLowerCase()) ||
+
+            emp.email.toLowerCase().includes(search.toLowerCase())
+
+        );
+
+        filtered.forEach((employee, index) => {
 
             tableBody.innerHTML += `
-                <tr>
-                    <td>${employee.name}</td>
-                    <td>${employee.id}</td>
-                    <td>${employee.email}</td>
-                    <td>${employee.role}</td>
-                    <td>
-                        <button onclick="deleteEmployee(${index})">
-                            Delete
-                        </button>
-                    </td>
-                </tr>
-            `;
+        <tr>
+
+            <td>${employee.name}</td>
+            <td>${employee.id}</td>
+            <td>${employee.email}</td>
+            <td>${employee.role}</td>
+
+            <td>
+
+                <button onclick="editEmployee(${index})">
+                    Edit
+                </button>
+
+                <button onclick="deleteEmployee(${index})">
+                    Delete
+                </button>
+
+            </td>
+
+        </tr>
+        `;
 
         });
 
@@ -258,12 +278,29 @@ if (employeeForm) {
 
         let employees = JSON.parse(localStorage.getItem("employees")) || [];
 
-        employees.push({
-            name,
-            id,
-            email,
-            role
-        });
+        if (editingIndex === -1) {
+
+            employees.push({
+                name,
+                id,
+                email,
+                role
+            });
+
+        } else {
+
+            employees[editingIndex] = {
+                name,
+                id,
+                email,
+                role
+            };
+
+            editingIndex = -1;
+
+            employeeForm.querySelector("button").innerText = "Add Employee";
+
+        }
 
         localStorage.setItem("employees", JSON.stringify(employees));
 
@@ -286,6 +323,36 @@ if (employeeForm) {
     }
 
     loadEmployees();
+
+}
+
+const searchEmployee = document.getElementById("searchEmployee");
+
+if (searchEmployee) {
+
+    searchEmployee.addEventListener("input", function () {
+
+        loadEmployees(this.value);
+
+    });
+
+}
+
+window.editEmployee = function (index) {
+
+    const employees =
+        JSON.parse(localStorage.getItem("employees")) || [];
+
+    const emp = employees[index];
+
+    document.getElementById("empName").value = emp.name;
+    document.getElementById("empId").value = emp.id;
+    document.getElementById("empEmail").value = emp.email;
+    document.getElementById("empRole").value = emp.role;
+
+    editingIndex = index;
+
+    employeeForm.querySelector("button").innerText = "Update Employee";
 
 }
 
@@ -331,7 +398,7 @@ if (attendanceForm) {
 
     }
 
-    attendanceForm.addEventListener("submit", function(e){
+    attendanceForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
@@ -386,7 +453,7 @@ if (leaveForm) {
 
     });
 
-    function loadLeaves(){
+    function loadLeaves() {
 
         tableBody.innerHTML = "";
 
@@ -409,7 +476,7 @@ if (leaveForm) {
 
     }
 
-    leaveForm.addEventListener("submit",function(e){
+    leaveForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
@@ -418,15 +485,15 @@ if (leaveForm) {
 
         leaves.push({
 
-            name:employeeSelect.value,
+            name: employeeSelect.value,
 
-            reason:document.getElementById("leaveReason").value,
+            reason: document.getElementById("leaveReason").value,
 
-            start:document.getElementById("leaveStart").value,
+            start: document.getElementById("leaveStart").value,
 
-            end:document.getElementById("leaveEnd").value,
+            end: document.getElementById("leaveEnd").value,
 
-            status:"Pending"
+            status: "Pending"
 
         });
 
@@ -468,16 +535,16 @@ if (payrollForm) {
 
     });
 
-    function loadPayroll(){
+    function loadPayroll() {
 
-        tableBody.innerHTML="";
+        tableBody.innerHTML = "";
 
         const payroll =
             JSON.parse(localStorage.getItem("payroll")) || [];
 
-        payroll.forEach(record=>{
+        payroll.forEach(record => {
 
-            tableBody.innerHTML+=`
+            tableBody.innerHTML += `
             <tr>
                 <td>${record.name}</td>
                 <td>₹${record.salary}</td>
@@ -491,22 +558,22 @@ if (payrollForm) {
 
     }
 
-    payrollForm.addEventListener("submit",function(e){
+    payrollForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
-        const salary=Number(document.getElementById("salary").value);
-        const bonus=Number(document.getElementById("bonus").value);
-        const deduction=Number(document.getElementById("deduction").value);
+        const salary = Number(document.getElementById("salary").value);
+        const bonus = Number(document.getElementById("bonus").value);
+        const deduction = Number(document.getElementById("deduction").value);
 
-        const netSalary=salary+bonus-deduction;
+        const netSalary = salary + bonus - deduction;
 
-        let payroll=
+        let payroll =
             JSON.parse(localStorage.getItem("payroll")) || [];
 
         payroll.push({
 
-            name:employeeSelect.value,
+            name: employeeSelect.value,
             salary,
             bonus,
             deduction,
@@ -526,5 +593,25 @@ if (payrollForm) {
     });
 
     loadPayroll();
+
+}
+
+// ================= PROFILE =================
+
+const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (loggedUser && document.getElementById("profileName")) {
+
+    document.getElementById("profileName").innerText =
+        loggedUser.fullName || loggedUser.name;
+
+    document.getElementById("profileEmail").innerText =
+        loggedUser.email;
+
+    document.getElementById("profileId").innerText =
+        loggedUser.employeeId || "N/A";
+
+    document.getElementById("profileRole").innerText =
+        loggedUser.role || "Employee";
 
 }

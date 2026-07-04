@@ -11,77 +11,81 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
-    
 
-<div class="dashboard">
 
-    <aside class="sidebar">
+    <div class="dashboard">
 
-        <h2>HRMS</h2>
+        <aside class="sidebar">
 
-        <ul>
-            <li><a href="dashboard.html">🏠 Dashboard</a></li>
-            <li><a href="employees.html">👥 Employees</a></li>
-            <li><a href="attendance.html">🕒 Attendance</a></li>
-            <li><a href="leave.html">📅 Leave</a></li>
-            <li><a href="payroll.html">💰 Payroll</a></li>
-            <li><a href="profile.html">👤 Profile</a></li>
-            <li><a href="#" id="logoutBtn">🚪 Logout</a></li>
-        </ul>
+            <h2>HRMS</h2>
 
-    </aside>
+            <ul>
+                <li><a href="dashboard.html">🏠 Dashboard</a></li>
+                <li><a href="employees.html">👥 Employees</a></li>
+                <li><a href="attendance.html">🕒 Attendance</a></li>
+                <li><a href="leave.html">📅 Leave</a></li>
+                <li><a href="payroll.html">💰 Payroll</a></li>
+                <li><a href="profile.html">👤 Profile</a></li>
+                <li><a href="#" id="logoutBtn">🚪 Logout</a></li>
+            </ul>
 
-    <main class="content">
+        </aside>
 
-        <h1>Employee Management</h1>
+        <main class="content">
 
-        <form id="employeeForm">
+            <h1>Employee Management</h1>
 
-            <input type="text" id="empName" placeholder="Employee Name" required>
+            <form id="employeeForm">
 
-            <input type="text" id="empId" placeholder="Employee ID" required>
+                <input type="text" id="empName" placeholder="Employee Name" required>
 
-            <input type="email" id="empEmail" placeholder="Email" required>
+                <input type="text" id="empId" placeholder="Employee ID" required>
 
-            <select id="empRole" required>
-                <option value="">Select Role</option>
-                <option>Employee</option>
-                <option>HR</option>
-            </select>
+                <input type="email" id="empEmail" placeholder="Email" required>
 
-            <button type="submit">Add Employee</button>
+                <select id="empRole" required>
+                    <option value="">Select Role</option>
+                    <option>Employee</option>
+                    <option>HR</option>
+                </select>
 
-        </form>
+                <button type="submit">Add Employee</button>
 
-        <table id="employeeTable">
+            </form>
 
-            <thead>
+            <input type="text" id="searchEmployee" placeholder="🔍 Search by Name, ID or Email...">
 
-                <tr>
+            <table id="employeeTable">
 
-                    <th>Name</th>
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Action</th>
+                <thead>
 
-                </tr>
+                    <tr>
 
-            </thead>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Action</th>
 
-            <tbody>
+                    </tr>
 
-            </tbody>
+                </thead>
 
-        </table>
+                <tbody>
 
-    </main>
+                </tbody>
 
-</div>
+            </table>
 
-<script src="app.js"></script>
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
 
 
 </body>
+
 </html>

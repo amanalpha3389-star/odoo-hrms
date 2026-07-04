@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | HRMS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <h2>HRMS</h2>
+
+            <ul>
+                <li><a href="dashboard.html">🏠 Dashboard</a></li>
+                <li><a href="employees.html">👥 Employees</a></li>
+                <li><a href="attendance.html">🕒 Attendance</a></li>
+                <li><a href="leave.html">📅 Leave</a></li>
+                <li><a href="payroll.html">💰 Payroll</a></li>
+                <li><a href="profile.html">👤 Profile</a></li>
+                <li><a href="#" id="logoutBtn">🚪 Logout</a></li>
+            </ul>
+
+        </aside>
+
+        <main class="content">
+
+            <h1>My Profile</h1>
+
+            <div class="card">
+
+                <h2 id="profileName"></h2>
+
+                <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+
+                <p><strong>Employee ID:</strong> <span id="profileId"></span></p>
+
+                <p><strong>Role:</strong> <span id="profileRole"></span></p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

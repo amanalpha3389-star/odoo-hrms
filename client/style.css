@@ -96,7 +96,7 @@ input:focus {
 
 #togglePassword:hover {
     color: #714B67;
-    transform:translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.1);
 }
 
 
@@ -133,19 +133,19 @@ span a:hover {
     text-decoration: underline;
 }
 
-.login-card{
+.login-card {
     padding: 30px 40px;
 }
 
-.login-card h1{
+.login-card h1 {
     margin-bottom: 5px;
 }
 
-.login-card p{
+.login-card p {
     margin-bottom: 20px;
 }
 
-label{
+label {
     display: block;
     margin-top: 12px;
     margin-bottom: 6px;
@@ -153,33 +153,33 @@ label{
 }
 
 input,
-select{
+select {
     height: 45px;
     padding: 0 16px;
     font-size: 16px;
 }
 
-button[type="submit"]{
+button[type="submit"] {
     margin-top: 20px;
     height: 48px;
 }
 
-.login-card span{
+.login-card span {
     display: block;
     margin-top: 18px;
     text-align: center;
 }
 
-.password-box{
+.password-box {
     position: relative;
 }
 
-.password-box input{
+.password-box input {
     width: 100%;
     padding-right: 50px;
 }
 
-.password-box button{
+.password-box button {
     position: absolute;
     right: 15px;
     top: 50%;
@@ -191,7 +191,7 @@ button[type="submit"]{
     font-size: 18px;
 }
 
-.password-box button{
+.password-box button {
     background: transparent;
     border: none;
     outline: none;
@@ -201,251 +201,261 @@ button[type="submit"]{
 
 /* ================= DASHBOARD ================= */
 
-.dashboard{
-    display:flex;
-    min-height:100vh;
+.dashboard {
+    display: flex;
+    min-height: 100vh;
 }
 
-.sidebar{
-    width:240px;
-    background:#714B67;
-    color:white;
-    padding:30px;
+.sidebar {
+    width: 240px;
+    background: #714B67;
+    color: white;
+    padding: 30px;
 }
 
-.sidebar h2{
-    text-align:center;
-    margin-bottom:40px;
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.sidebar ul{
-    list-style:none;
-    padding:0;
+.sidebar ul {
+    list-style: none;
+    padding: 0;
 }
 
-.sidebar li{
-    margin:20px 0;
+.sidebar li {
+    margin: 20px 0;
 }
 
-.sidebar{
-    width:220px;
-    min-width:220px;
-    background:#714B67;
-    color:white;
-    padding:30px 20px;
+.sidebar {
+    width: 220px;
+    min-width: 220px;
+    background: #714B67;
+    color: white;
+    padding: 30px 20px;
 }
 
-.sidebar a:hover{
-    opacity:.8;
+.sidebar a:hover {
+    opacity: .8;
 }
 
-.content{
-    flex:1;
-    padding:35px;
-    background:#f7f7f7;
-    overflow:auto;
+.content {
+    flex: 1;
+    padding: 35px;
+    background: #f7f7f7;
+    overflow: auto;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(2, minmax(250px,1fr));
-    gap:25px;
-    margin-top:30px;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
 }
 
 
-.card{
-    background:white;
-    border-radius:15px;
-    padding:30px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-    text-align:center;
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+    text-align: center;
 }
 
-.card h3{
-    color:#666;
-    margin-bottom:15px;
+.card h3 {
+    color: #666;
+    margin-bottom: 15px;
 }
 
-.card h2{
-    color:#714B67;
-    font-size:36px;
+.card h2 {
+    color: #714B67;
+    font-size: 36px;
+    max-width: 600px;
 }
 
-#welcomeText{
-    margin-bottom:30px;
-    font-size:34px;
-    color:#333;
+#welcomeText {
+    margin-bottom: 30px;
+    font-size: 34px;
+    color: #333;
 }
 
 /* EMPLOYEES */
 
-#employeeForm{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin:30px 0;
+#employeeForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 30px 0;
 }
 
 #employeeForm input,
-#employeeForm select{
-    padding:12px;
+#employeeForm select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#employeeForm button {
+    background: #714B67;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+#searchEmployee{
+    width:100%;
+    padding:12px 15px;
+    margin:20px 0;
     border:1px solid #ddd;
     border-radius:8px;
+    font-size:16px;
 }
 
-#employeeForm button{
-    background:#714B67;
-    color:white;
-    border:none;
-    border-radius:8px;
-    padding:12px;
-    cursor:pointer;
-}
-
-#employeeTable{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
+#employeeTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
 }
 
 #employeeTable th,
-#employeeTable td{
-    border:1px solid #ddd;
-    padding:12px;
-    text-align:center;
+#employeeTable td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
 }
 
-#employeeTable th{
-    background:#714B67;
-    color:white;
+#employeeTable th {
+    background: #714B67;
+    color: white;
 }
 
 /* ATTENDANCE */
 
-#attendanceForm{
-    display:grid;
-    grid-template-columns:1fr 1fr auto;
-    gap:15px;
-    margin:30px 0;
+#attendanceForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 15px;
+    margin: 30px 0;
 }
 
-#attendanceForm select{
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #ddd;
+#attendanceForm select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
 }
 
-#attendanceForm button{
-    background:#714B67;
-    color:white;
-    border:none;
-    border-radius:8px;
-    padding:12px 20px;
-    cursor:pointer;
+#attendanceForm button {
+    background: #714B67;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
 }
 
-#attendanceTable{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
+#attendanceTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
 }
 
 #attendanceTable th,
-#attendanceTable td{
-    border:1px solid #ddd;
-    padding:12px;
-    text-align:center;
+#attendanceTable td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
 }
 
-#attendanceTable th{
-    background:#714B67;
-    color:white;
+#attendanceTable th {
+    background: #714B67;
+    color: white;
 }
 
 /* LEAVE */
 
-#leaveForm{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin:30px 0;
+#leaveForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 30px 0;
 }
 
 #leaveForm input,
-#leaveForm select{
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:8px;
+#leaveForm select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
 
-#leaveForm button{
-    background:#714B67;
-    color:white;
-    border:none;
-    border-radius:8px;
-    padding:12px;
-    cursor:pointer;
+#leaveForm button {
+    background: #714B67;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
 }
 
-#leaveTable{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
+#leaveTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
 }
 
 #leaveTable th,
-#leaveTable td{
-    border:1px solid #ddd;
-    padding:12px;
-    text-align:center;
+#leaveTable td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
 }
 
-#leaveTable th{
-    background:#714B67;
-    color:white;
+#leaveTable th {
+    background: #714B67;
+    color: white;
 }
 
 
 /* PAYROLL */
 
-#payrollForm{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin:30px 0;
+#payrollForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 30px 0;
 }
 
 #payrollForm input,
-#payrollForm select{
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:8px;
+#payrollForm select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
 
-#payrollForm button{
-    background:#714B67;
-    color:white;
-    border:none;
-    border-radius:8px;
-    padding:12px;
-    cursor:pointer;
+#payrollForm button {
+    background: #714B67;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
 }
 
-#payrollTable{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
+#payrollTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
 }
 
 #payrollTable th,
-#payrollTable td{
-    border:1px solid #ddd;
-    padding:12px;
-    text-align:center;
+#payrollTable td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
 }
 
-#payrollTable th{
-    background:#714B67;
-    color:white;
+#payrollTable th {
+    background: #714B67;
+    color: white;
 }

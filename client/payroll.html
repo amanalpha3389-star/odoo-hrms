@@ -14,86 +14,70 @@
 
 <body>
 
-<div class="dashboard">
+    <div class="dashboard">
 
-    <aside class="sidebar">
+        <aside class="sidebar">
 
-        <h2>HRMS</h2>
+            <h2>HRMS</h2>
 
-        <ul>
-            <li><a href="dashboard.html">🏠 Dashboard</a></li>
-            <li><a href="employees.html">👥 Employees</a></li>
-            <li><a href="attendance.html">🕒 Attendance</a></li>
-            <li><a href="leave.html">📅 Leave</a></li>
-            <li><a href="payroll.html">💰 Payroll</a></li>
-            <li><a href="profile.html">👤 Profile</a></li>
-            <li><a href="#" id="logoutBtn">🚪 Logout</a></li>
-        </ul>
+            <ul>
+                <li><a href="dashboard.html">🏠 Dashboard</a></li>
+                <li><a href="employees.html">👥 Employees</a></li>
+                <li><a href="attendance.html">🕒 Attendance</a></li>
+                <li><a href="leave.html">📅 Leave</a></li>
+                <li><a href="payroll.html">💰 Payroll</a></li>
+                <li><a href="profile.html">👤 Profile</a></li>
+                <li><a href="#" id="logoutBtn">🚪 Logout</a></li>
+            </ul>
 
-    </aside>
+        </aside>
 
-    <main class="content">
+        <main class="content">
 
-        <h1>Payroll Management</h1>
+            <h1>Payroll Management</h1>
 
-        <form id="payrollForm">
+            <form id="payrollForm">
 
-            <select id="payEmployee" required>
-                <option value="">Select Employee</option>
-            </select>
+                <select id="payEmployee" required>
+                    <option value="">Select Employee</option>
+                </select>
 
-            <input
-                type="number"
-                id="salary"
-                placeholder="Basic Salary"
-                required
-            >
+                <input type="number" id="salary" placeholder="Basic Salary" required>
 
-            <input
-                type="number"
-                id="bonus"
-                placeholder="Bonus"
-                required
-            >
+                <input type="number" id="bonus" placeholder="Bonus" required>
 
-            <input
-                type="number"
-                id="deduction"
-                placeholder="Deduction"
-                required
-            >
+                <input type="number" id="deduction" placeholder="Deduction" required>
 
-            <button type="submit">
-                Generate Payroll
-            </button>
+                <button type="submit">
+                    Generate Payroll
+                </button>
 
-        </form>
+            </form>
 
-        <table id="payrollTable">
+            <table id="payrollTable">
 
-            <thead>
+                <thead>
 
-                <tr>
-                    <th>Name</th>
-                    <th>Salary</th>
-                    <th>Bonus</th>
-                    <th>Deduction</th>
-                    <th>Net Salary</th>
-                </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Salary</th>
+                        <th>Bonus</th>
+                        <th>Deduction</th>
+                        <th>Net Salary</th>
+                    </tr>
 
-            </thead>
+                </thead>
 
-            <tbody></tbody>
+                <tbody></tbody>
 
-        </table>
+            </table>
 
-    </main>
+        </main>
 
-</div>
+    </div>
 
-<script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
 
 </html>
-
