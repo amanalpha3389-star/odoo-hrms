@@ -320,3 +320,132 @@ button[type="submit"]{
     background:#714B67;
     color:white;
 }
+
+/* ATTENDANCE */
+
+#attendanceForm{
+    display:grid;
+    grid-template-columns:1fr 1fr auto;
+    gap:15px;
+    margin:30px 0;
+}
+
+#attendanceForm select{
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+#attendanceForm button{
+    background:#714B67;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:12px 20px;
+    cursor:pointer;
+}
+
+#attendanceTable{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+#attendanceTable th,
+#attendanceTable td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+#attendanceTable th{
+    background:#714B67;
+    color:white;
+}
+
+/* LEAVE */
+
+#leaveForm{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin:30px 0;
+}
+
+#leaveForm input,
+#leaveForm select{
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+#leaveForm button{
+    background:#714B67;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:12px;
+    cursor:pointer;
+}
+
+#leaveTable{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+#leaveTable th,
+#leaveTable td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+#leaveTable th{
+    background:#714B67;
+    color:white;
+}
+
+
+/* PAYROLL */
+
+#payrollForm{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin:30px 0;
+}
+
+#payrollForm input,
+#payrollForm select{
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+#payrollForm button{
+    background:#714B67;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:12px;
+    cursor:pointer;
+}
+
+#payrollTable{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+#payrollTable th,
+#payrollTable td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+#payrollTable th{
+    background:#714B67;
+    color:white;
+}

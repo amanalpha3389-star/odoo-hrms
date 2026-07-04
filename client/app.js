@@ -288,3 +288,243 @@ if (employeeForm) {
     loadEmployees();
 
 }
+
+// ================= ATTENDANCE =================
+
+const attendanceForm = document.getElementById("attendanceForm");
+
+if (attendanceForm) {
+
+    const employeeSelect = document.getElementById("attendanceEmployee");
+    const attendanceTable = document.querySelector("#attendanceTable tbody");
+
+    // Load employees into dropdown
+    const employees = JSON.parse(localStorage.getItem("employees")) || [];
+
+    employees.forEach(emp => {
+        employeeSelect.innerHTML += `
+            <option value="${emp.name}">
+                ${emp.name}
+            </option>
+        `;
+    });
+
+    // Load attendance table
+    function loadAttendance() {
+
+        attendanceTable.innerHTML = "";
+
+        const attendance =
+            JSON.parse(localStorage.getItem("attendance")) || [];
+
+        attendance.forEach(record => {
+
+            attendanceTable.innerHTML += `
+                <tr>
+                    <td>${record.name}</td>
+                    <td>${record.status}</td>
+                    <td>${record.date}</td>
+                </tr>
+            `;
+
+        });
+
+    }
+
+    attendanceForm.addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        const name = employeeSelect.value;
+        const status = document.getElementById("attendanceStatus").value;
+
+        const today = new Date().toLocaleDateString();
+
+        let attendance =
+            JSON.parse(localStorage.getItem("attendance")) || [];
+
+        attendance.push({
+            name,
+            status,
+            date: today
+        });
+
+        localStorage.setItem(
+            "attendance",
+            JSON.stringify(attendance)
+        );
+
+        attendanceForm.reset();
+
+        loadAttendance();
+
+    });
+
+    loadAttendance();
+
+}
+
+// ================= LEAVE MANAGEMENT =================
+
+const leaveForm = document.getElementById("leaveForm");
+
+if (leaveForm) {
+
+    const employeeSelect = document.getElementById("leaveEmployee");
+    const tableBody = document.querySelector("#leaveTable tbody");
+
+    const employees =
+        JSON.parse(localStorage.getItem("employees")) || [];
+
+    employees.forEach(emp => {
+
+        employeeSelect.innerHTML += `
+            <option value="${emp.name}">
+                ${emp.name}
+            </option>
+        `;
+
+    });
+
+    function loadLeaves(){
+
+        tableBody.innerHTML = "";
+
+        const leaves =
+            JSON.parse(localStorage.getItem("leaveRequests")) || [];
+
+        leaves.forEach(leave => {
+
+            tableBody.innerHTML += `
+                <tr>
+                    <td>${leave.name}</td>
+                    <td>${leave.reason}</td>
+                    <td>${leave.start}</td>
+                    <td>${leave.end}</td>
+                    <td>${leave.status}</td>
+                </tr>
+            `;
+
+        });
+
+    }
+
+    leaveForm.addEventListener("submit",function(e){
+
+        e.preventDefault();
+
+        let leaves =
+            JSON.parse(localStorage.getItem("leaveRequests")) || [];
+
+        leaves.push({
+
+            name:employeeSelect.value,
+
+            reason:document.getElementById("leaveReason").value,
+
+            start:document.getElementById("leaveStart").value,
+
+            end:document.getElementById("leaveEnd").value,
+
+            status:"Pending"
+
+        });
+
+        localStorage.setItem(
+            "leaveRequests",
+            JSON.stringify(leaves)
+        );
+
+        leaveForm.reset();
+
+        loadLeaves();
+
+    });
+
+    loadLeaves();
+
+}
+
+
+// ================= PAYROLL =================
+
+const payrollForm = document.getElementById("payrollForm");
+
+if (payrollForm) {
+
+    const employeeSelect = document.getElementById("payEmployee");
+    const tableBody = document.querySelector("#payrollTable tbody");
+
+    const employees =
+        JSON.parse(localStorage.getItem("employees")) || [];
+
+    employees.forEach(emp => {
+
+        employeeSelect.innerHTML += `
+            <option value="${emp.name}">
+                ${emp.name}
+            </option>
+        `;
+
+    });
+
+    function loadPayroll(){
+
+        tableBody.innerHTML="";
+
+        const payroll =
+            JSON.parse(localStorage.getItem("payroll")) || [];
+
+        payroll.forEach(record=>{
+
+            tableBody.innerHTML+=`
+            <tr>
+                <td>${record.name}</td>
+                <td>₹${record.salary}</td>
+                <td>₹${record.bonus}</td>
+                <td>₹${record.deduction}</td>
+                <td><strong>₹${record.netSalary}</strong></td>
+            </tr>
+            `;
+
+        });
+
+    }
+
+    payrollForm.addEventListener("submit",function(e){
+
+        e.preventDefault();
+
+        const salary=Number(document.getElementById("salary").value);
+        const bonus=Number(document.getElementById("bonus").value);
+        const deduction=Number(document.getElementById("deduction").value);
+
+        const netSalary=salary+bonus-deduction;
+
+        let payroll=
+            JSON.parse(localStorage.getItem("payroll")) || [];
+
+        payroll.push({
+
+            name:employeeSelect.value,
+            salary,
+            bonus,
+            deduction,
+            netSalary
+
+        });
+
+        localStorage.setItem(
+            "payroll",
+            JSON.stringify(payroll)
+        );
+
+        payrollForm.reset();
+
+        loadPayroll();
+
+    });
+
+    loadPayroll();
+
+}
