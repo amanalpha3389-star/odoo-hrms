@@ -44,21 +44,36 @@
 
         <main class="content">
 
-            <h1>My Profile</h1>
+    <h1 class="profile-title">My Profile</h1>
 
-            <div class="card">
+    <div class="card profile-card">
 
-                <h2 id="profileName"></h2>
+        <div class="profile-name-box">
+            <h2 id="profileName"></h2>
+        </div>
 
-                <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+        <div class="profile-info">
 
-                <p><strong>Employee ID:</strong> <span id="profileId"></span></p>
-
-                <p><strong>Role:</strong> <span id="profileRole"></span></p>
-
+            <div class="profile-row">
+                <span class="profile-label">Email</span>
+                <span id="profileEmail"></span>
             </div>
 
-        </main>
+            <div class="profile-row">
+                <span class="profile-label">Employee ID</span>
+                <span id="profileId"></span>
+            </div>
+
+            <div class="profile-row">
+                <span class="profile-label">Role</span>
+                <span id="profileRole"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
 
     </div>
 

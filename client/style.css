@@ -6,12 +6,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background: linear-gradient(135deg, #F7F7F7, #ECE6EA);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body{
+
+    margin:0;
+
+    background:#F7F8FC;
+
+    font-family:"Poppins",sans-serif;
+
+    color:#333;
 }
 
 .login-container {
@@ -206,37 +209,123 @@ button[type="submit"] {
     min-height: 100vh;
 }
 
-.sidebar {
-    width: 240px;
-    background: #714B67;
-    color: white;
-    padding: 30px;
+.sidebar{
+    position: fixed;
+    top:0;
+    left:0;
+    width:260px;
+    height:100vh;
+
+    background:linear-gradient(
+        180deg,
+        #6D4C68 0%,
+        #5B3F59 100%
+    );
+
+    color:#fff;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:35px 22px;
+
+    box-shadow:
+    6px 0 25px rgba(0,0,0,.12);
+
+    z-index:100;
 }
 
-.sidebar h2 {
-    text-align: center;
-    margin-bottom: 40px;
+.sidebar h2{
+    text-align:center;
+    color:white;
+
+    font-size:2.2rem;
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:50px;
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+.sidebar ul{
+    list-style:none;
+    padding:0;
 }
 
-.sidebar li {
-    margin: 20px 0;
+.sidebar li{
+    margin-bottom:12px;
 }
 
-.sidebar {
-    width: 220px;
-    min-width: 220px;
-    background: #714B67;
-    color: white;
-    padding: 30px 20px;
+.sidebar a{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+    
+
+    text-decoration:none;
+
+    color:#F7F5FA;
+
+    padding:15px 18px;
+
+    border-radius:12px;
+
+    transition:.3s ease;
+
+    font-size:20px;
+
+    font-weight:500;
 }
 
-.sidebar a:hover {
-    opacity: .8;
+.sidebar a:hover{
+
+    background:rgba(255,255,255,.12);
+
+    transform:translateX(6px);
+
+    color:white;
+}
+
+.sidebar a.active{
+
+    background:white;
+
+    color:#6D4C68;
+
+    font-weight:600;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,.08);
+}
+
+.sidebar .logout{
+
+    margin-top:auto;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.2);
+}
+
+.sidebar i{
+
+    width:22px;
+
+    text-align:center;
+
+    font-size:18px;
+}
+
+.content{
+
+    margin-left:260px;
+
+    padding:45px;
+
+    min-height:100vh;
+
+    background:#F7F8FC;
 }
 
 .content {
@@ -458,4 +547,95 @@ button[type="submit"] {
 #payrollTable th {
     background: #714B67;
     color: white;
+}
+
+main{
+    flex:1;
+    padding:40px;
+}
+
+/* ================= PROFILE ================= */
+
+.profile-title{
+    font-size:42px;
+    margin-bottom:25px;
+    font-weight:700;
+}
+
+.profile-card{
+
+    max-width:850px;
+
+    margin:0 auto;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    background:#fff;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.profile-name-box{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.profile-name-box h2{
+
+    font-size:42px;
+
+    color:#6D4C68;
+
+    margin:0;
+
+}
+
+.profile-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.profile-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 24px;
+
+    border-radius:12px;
+
+    background:#F8F8FA;
+
+    font-size:18px;
+
+}
+
+.profile-label{
+
+    font-weight:600;
+
+    color:#666;
+
+}
+
+.profile-row span:last-child{
+
+    font-weight:600;
+
+    color:#222;
+
 }

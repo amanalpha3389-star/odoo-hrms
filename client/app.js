@@ -1,3 +1,5 @@
+console.log("app.js loaded");
+
 // ================= AUTH CHECK =================
 
 const protectedPages = [
@@ -183,51 +185,70 @@ if (loginForm) {
 
 }
 
-// ================= DASHBOARD =================
+/// ================= DASHBOARD =================
 
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 if (loggedInUser && document.getElementById("welcomeText")) {
 
+    const hour = new Date().getHours();
+
+    let greeting = "Welcome";
+
+    if (hour < 12) {
+        greeting = "Good Morning";
+    } else if (hour < 17) {
+        greeting = "Good Afternoon";
+    } else {
+        greeting = "Good Evening";
+    }
+
     document.getElementById("welcomeText").innerText =
-        `Welcome, ${loggedInUser.fullName}`;
+        `${greeting}, ${loggedInUser.fullName}`;
 
-    const employees = JSON.parse(localStorage.getItem("employees")) || [];
+    // Employees
+    const employees =
+        JSON.parse(localStorage.getItem("employees")) || [];
 
-    document.getElementById("employeeCount").innerText = employees.length;
+    document.getElementById("employeeCount").innerText =
+        employees.length;
 
+    // Attendance
     const attendance =
         JSON.parse(localStorage.getItem("attendance")) || [];
 
-    document.getElementById("attendanceCount").innerText =
-        attendance.length;
+    const today = new Date().toLocaleDateString();
 
+    const todayAttendance = attendance.filter(
+        a => a.date === today
+    );
+
+    document.getElementById("attendanceCount").innerText =
+        todayAttendance.length;
+
+    // Leaves
     const leaves =
         JSON.parse(localStorage.getItem("leaveRequests")) || [];
 
-    document.getElementById("leaveCount").innerText =
-        leaves.length;
+    const pendingLeaves = leaves.filter(
+        leave => leave.status === "Pending"
+    );
 
+    document.getElementById("leaveCount").innerText =
+        pendingLeaves.length;
+
+    // Payroll
     const payroll =
         JSON.parse(localStorage.getItem("payroll")) || [];
 
-    document.getElementById("payrollCount").innerText =
-        payroll.length;
-}
+    let totalPayroll = 0;
 
-// Logout
-
-const logoutBtn = document.getElementById("logoutBtn");
-
-if (logoutBtn) {
-
-    logoutBtn.addEventListener("click", function () {
-
-        localStorage.removeItem("loggedInUser");
-
-        window.location.href = "index.html";
-
+    payroll.forEach(record => {
+        totalPayroll += Number(record.netSalary);
     });
+
+    document.getElementById("payrollCount").innerText =
+        "₹" + totalPayroll.toLocaleString();
 
 }
 
@@ -337,6 +358,10 @@ if (employeeForm) {
     });
 
     window.deleteEmployee = function (index) {
+
+        if (!confirm("Are you sure you want to delete this employee?")) {
+            return;
+        }
 
         let employees = JSON.parse(localStorage.getItem("employees")) || [];
 
@@ -689,5 +714,23 @@ if (loggedUser && document.getElementById("profileName")) {
 
     document.getElementById("profileRole").innerText =
         loggedUser.role || "Employee";
+
+}
+
+// ================= LOGOUT =================
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+
+    logoutBtn.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        localStorage.removeItem("loggedInUser");
+
+        window.location.href = "index.html";
+
+    });
 
 }
