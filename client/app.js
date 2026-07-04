@@ -18,6 +18,24 @@ if (
     window.location.href = "index.html";
 }
 
+// ================= ROLE BASED UI =================
+
+const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if(currentUser){
+
+    if(currentUser.role === "Employee"){
+
+        const empNav=document.getElementById("employeesNav");
+
+        if(empNav){
+            empNav.style.display="none";
+        }
+
+    }
+
+}
+
 // Password Toggle
 const togglePassword = document.getElementById("togglePassword");
 const password = document.getElementById("password");
@@ -215,7 +233,15 @@ if (logoutBtn) {
 
 // ================= EMPLOYEE MANAGEMENT =================
 
+if(
+    currentUser &&
+    currentUser.role === "Employee"
+){
+    window.location.href="dashboard.html";
+}
+
 const employeeForm = document.getElementById("employeeForm");
+
 let editingIndex = -1;
 if (employeeForm) {
 

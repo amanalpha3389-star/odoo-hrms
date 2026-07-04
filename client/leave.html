@@ -14,82 +14,80 @@
 
 <body>
 
-<div class="dashboard">
+    <div class="dashboard">
 
-    <aside class="sidebar">
+        <aside class="sidebar">
 
-        <h2>HRMS</h2>
+            <h2>HRMS</h2>
 
-        <ul>
-            <li><a href="dashboard.html">🏠 Dashboard</a></li>
-            <li><a href="employees.html">👥 Employees</a></li>
-            <li><a href="attendance.html">🕒 Attendance</a></li>
-            <li><a href="leave.html">📅 Leave</a></li>
-            <li><a href="payroll.html">💰 Payroll</a></li>
-            <li><a href="profile.html">👤 Profile</a></li>
-            <li><a href="#" id="logoutBtn">🚪 Logout</a></li>
-        </ul>
+            <ul>
+                <li><a href="dashboard.html">🏠 Dashboard</a></li>
+                <li id="employeesNav">
+                    <a href="employees.html">👥 Employees</a>
+                </li>
+                <li id="attendanceNav">
+                    <a href="attendance.html">🕒 Attendance</a>
+                </li>
+                <li id="leaveNav">
+                    <a href="leave.html">📅 Leave</a>
+                </li>
+                <li id="payrollNav">
+                    <a href="payroll.html">💰 Payroll</a>
+                </li>
+                <li id="profileNav">
+                    <a href="profile.html">👤 Profile</a>
+                </li>
+                <li><a href="#" id="logoutBtn">🚪 Logout</a></li>
+            </ul>
 
-    </aside>
+        </aside>
 
-    <main class="content">
+        <main class="content">
 
-        <h1>Leave Management</h1>
+            <h1>Leave Management</h1>
 
-        <form id="leaveForm">
+            <form id="leaveForm">
 
-            <select id="leaveEmployee" required>
-                <option value="">Select Employee</option>
-            </select>
+                <select id="leaveEmployee" required>
+                    <option value="">Select Employee</option>
+                </select>
 
-            <input
-                type="text"
-                id="leaveReason"
-                placeholder="Reason"
-                required
-            >
+                <input type="text" id="leaveReason" placeholder="Reason" required>
 
-            <input
-                type="date"
-                id="leaveStart"
-                required
-            >
+                <input type="date" id="leaveStart" required>
 
-            <input
-                type="date"
-                id="leaveEnd"
-                required
-            >
+                <input type="date" id="leaveEnd" required>
 
-            <button type="submit">
-                Apply Leave
-            </button>
+                <button type="submit">
+                    Apply Leave
+                </button>
 
-        </form>
+            </form>
 
-        <table id="leaveTable">
+            <table id="leaveTable">
 
-            <thead>
+                <thead>
 
-                <tr>
-                    <th>Name</th>
-                    <th>Reason</th>
-                    <th>From</th>
-                    <th>To</th>
-                    <th>Status</th>
-                </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Reason</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Status</th>
+                    </tr>
 
-            </thead>
+                </thead>
 
-            <tbody></tbody>
+                <tbody></tbody>
 
-        </table>
+            </table>
 
-    </main>
+        </main>
 
-</div>
+    </div>
 
-<script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
+
 </html>
