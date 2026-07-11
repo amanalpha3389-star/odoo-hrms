@@ -1,24 +1,42 @@
-# odoo-hrms
-A Human Resource Management System (HRMS) built for the Odoo x Adamas University Hackathon 2026, featuring employee management, attendance tracking, leave management, payroll, and role-based access control.
-
 # HRMS - Human Resource Management System
 
-A modern Human Resource Management System (HRMS) developed for the Odoo Hackathon.
+A full-featured Human Resource Management System built using HTML, CSS, and JavaScript. The project provides an intuitive interface for managing employees, attendance, leave requests, payroll, and user profiles.
 
 ## Features
 
-- Secure Login & Registration
-- Role-Based Access (HR & Employee)
-- Dashboard with Analytics
-- Employee Management (CRUD)
-- Employee Search
+- Authentication System
+  - User Registration
+  - User Login & Logout
+  - Role-Based Access Control (HR & Employee)
+
+- Dashboard
+  - Employee Statistics
+  - Attendance Summary
+  - Pending Leave Requests
+  - Payroll Overview
+
+- Employee Management
+  - Add Employees
+  - Edit Employee Details
+  - Delete Employees
+  - Search Employees
+
 - Attendance Management
+  - Mark Daily Attendance
+  - View Attendance Records
+
 - Leave Management
-- Leave Approval/Rejection (HR)
-- Payroll Management
-- Employee Profile
-- Logout & Protected Pages
-- Local Storage Persistence
+  - Apply for Leave
+  - Approve / Reject Leave Requests
+
+- Payroll System
+  - Salary Calculation
+  - Bonus & Deductions
+  - Net Salary Generation
+
+- Profile Management
+  - Employee Information
+  - Role Details
 
 ## Tech Stack
 
@@ -27,52 +45,40 @@ A modern Human Resource Management System (HRMS) developed for the Odoo Hackatho
 - JavaScript (Vanilla JS)
 - LocalStorage
 
-## Modules
+## Project Structure
 
-### Authentication
-- Login
-- Register
-- Logout
+```
+hrms/
+├── index.html
+├── register.html
+├── dashboard.html
+├── employees.html
+├── attendance.html
+├── leave.html
+├── payroll.html
+├── profile.html
+├── style.css
+└── app.js
+```
 
-### Dashboard
-- Employee Count
-- Today's Attendance
-- Pending Leave Requests
-- Payroll Summary
+## Screenshots
 
-### Employee Management
-- Add Employee
-- Edit Employee
-- Delete Employee
-- Search Employee
-
-### Attendance
-- Mark Attendance
-- Attendance Records
-
-### Leave Management
-- Apply Leave
-- HR Approval / Rejection
-
-### Payroll
-- Salary Management
-- Bonus
-- Deduction
-- Net Salary Calculation
-
-### Profile
-- Employee Information
-- Role Details
+_Add screenshots of the dashboard and employee management pages here._
 
 ## Future Improvements
 
-- Backend Integration (Node.js + Express)
-- Database (MongoDB / MySQL)
-- Email Notifications
-- File Uploads
-- Reports & Analytics
+- React Frontend
+- Node.js & Express Backend
+- MongoDB Database
 - JWT Authentication
+- Email Notifications
+- Reports & Analytics
+- Deployment
 
-## Team
+## About
 
-Developed for the **Odoo Hackathon 2026**.
+This project started as a hackathon prototype and is now being developed further as a personal full-stack project.
+
+---
+
+Made with ❤️ by Aman Mondal.
